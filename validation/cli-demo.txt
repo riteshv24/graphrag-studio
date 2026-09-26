@@ -1,0 +1,29 @@
+Platform Team -> OWNS -> Identity Service [S1]
+
+Payments Service -> DEPENDS_ON -> Identity Service [S2]
+
+Evidence:
+[S1] Identity ownership — {'bm25': 1.4903, 'cosine': 0.6429, 'lexicalRank': 1, 'vectorRank': 2, 'graphHops': 1, 'edgePath': ['d12b0c083029c5452639bbe4']}
+[S2] Payments dependency — {'bm25': 0.5592, 'cosine': 0.7283, 'lexicalRank': 2, 'vectorRank': 1, 'graphHops': 1, 'edgePath': ['ab44bba744705b0dae9e39c7']}
+
+Computed retrieval ablation:
+[
+  {
+    "mode": "lexical",
+    "recallAtK": 1.0,
+    "mrr": 1.0,
+    "meanLatencyMs": 0.0
+  },
+  {
+    "mode": "vector",
+    "recallAtK": 1.0,
+    "mrr": 1.0,
+    "meanLatencyMs": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "recallAtK": 1.0,
+    "mrr": 1.0,
+    "meanLatencyMs": 0.0
+  }
+]

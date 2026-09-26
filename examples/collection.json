@@ -1,0 +1,14 @@
+{
+  "name": "Northstar architecture",
+  "description": "A fictional service graph for exploring evidence across system design documents.",
+  "embeddingProvider": "hash",
+  "aliases": {
+    "payments": "Payments Service",
+    "identity": "Identity Service",
+    "checkout": "Checkout Service",
+    "inventory": "Inventory Service",
+    "Postgres": "PostgreSQL"
+  },
+  "chunkSize": 1100,
+  "overlap": 120
+}

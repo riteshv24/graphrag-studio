@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Payments architecture",
+    "source": "fictional architecture corpus",
+    "file": "documents/payments-architecture.md"
+  },
+  {
+    "title": "Identity and access",
+    "source": "fictional architecture corpus",
+    "file": "documents/identity-and-access.md"
+  },
+  {
+    "title": "Checkout request flow",
+    "source": "fictional architecture corpus",
+    "file": "documents/checkout-request-flow.md"
+  },
+  {
+    "title": "Data platform contracts",
+    "source": "fictional architecture corpus",
+    "file": "documents/data-platform-contracts.md"
+  },
+  {
+    "title": "Ownership register",
+    "source": "fictional architecture corpus",
+    "file": "documents/ownership-register.md"
+  },
+  {
+    "title": "Observability runbook",
+    "source": "fictional architecture corpus",
+    "file": "documents/observability-runbook.md"
+  },
+  {
+    "title": "Inventory consistency",
+    "source": "fictional architecture corpus",
+    "file": "documents/inventory-consistency.md"
+  },
+  {
+    "title": "Failure scenario notes",
+    "source": "fictional architecture corpus",
+    "file": "documents/failure-scenario-notes.md"
+  }
+]

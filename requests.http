@@ -1,0 +1,48 @@
+# REST Client examples. Start the app and replace identifiers using list responses.
+@base = http://localhost:8313
+@key =
+
+### Liveness
+GET {{base}}/health
+
+### Runtime metadata
+GET {{base}}/api/meta
+X-Workspace-Key: {{key}}
+
+### Actual route contract
+GET {{base}}/api/routes
+X-Workspace-Key: {{key}}
+
+### Recent jobs
+GET {{base}}/api/jobs
+X-Workspace-Key: {{key}}
+
+### Metadata-only audit history
+GET {{base}}/api/audit
+X-Workspace-Key: {{key}}
+
+### Create a collection
+POST {{base}}/api/collections
+Content-Type: application/json
+X-Workspace-Key: {{key}}
+
+< ./examples/collection.json
+
+### Ingest text and await its indexing job
+POST {{base}}/api/collections/REPLACE_COLLECTION_ID/documents
+Content-Type: application/json
+X-Workspace-Key: {{key}}
+Idempotency-Key: example-document-1
+
+{"title":"Identity ownership","text":"Platform Team -> OWNS -> Identity Service\nPlatform Team owns Identity Service and responds to its incidents.","source":"Local example"}
+
+### Query committed indexed documents
+POST {{base}}/api/collections/REPLACE_COLLECTION_ID/query
+Content-Type: application/json
+X-Workspace-Key: {{key}}
+
+< ./examples/query.json
+
+### Export the graph
+GET {{base}}/api/collections/REPLACE_COLLECTION_ID/graph.graphml
+X-Workspace-Key: {{key}}

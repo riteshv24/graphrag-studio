@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {layoutGraph,neighbors,visibleEdges} from '../lib/graph.js';
+const nodes=[{id:'a',name:'A'},{id:'b',name:'B'},{id:'c',name:'C'}];
+const edges=[{source:'a',target:'b',type:'USES'},{source:'b',target:'c',type:'CO_OCCURS'}];
+test('layout keeps every identity and finite bounded positions',()=>{const p=layoutGraph(nodes,edges);assert.deepEqual(p.map(n=>n.id),['a','b','c']);for(const n of p){assert.ok(Number.isFinite(n.x));assert.ok(n.x>=65&&n.x<=855);assert.ok(n.y>=45&&n.y<=470);}});
+test('layout is deterministic and does not mutate graph input',()=>{assert.deepEqual(layoutGraph(nodes,edges),layoutGraph(nodes,edges));assert.equal(nodes[0].x,undefined);});
+test('empty graph and disconnected graph are supported',()=>{assert.deepEqual(layoutGraph([],[]),[]);assert.equal(layoutGraph(nodes,[]).length,3);});
+test('neighbors traverse either edge direction without including self',()=>assert.deepEqual([...neighbors('b',edges)],['a','c']));
+test('weak co-occurrence is hidden unless explicitly enabled',()=>{assert.equal(visibleEdges(edges).length,1);assert.equal(visibleEdges(edges,true).length,2);});
+test('edges with missing endpoint do not destabilize layout',()=>assert.equal(layoutGraph(nodes,[{source:'a',target:'missing'}]).length,3));

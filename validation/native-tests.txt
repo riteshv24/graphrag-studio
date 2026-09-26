@@ -1,0 +1,160 @@
+PASS JSON nested Unicode and escape round trip
+PASS JSON duplicate keys are rejected
+PASS JSON trailing data is rejected
+PASS JSON invalid leading-zero number is rejected
+PASS JSON nonfinite output is rejected
+PASS JSON recursive depth is bounded
+PASS JSON empty arrays and escaped control characters
+PASS Logical paths reject traversal, drives, absolute paths
+PASS Constant-time secret helper distinguishes equal values
+PASS Required text validates size and null bytes
+PASS Read-only transaction cannot mutate store
+PASS Transaction exception rolls back every write
+PASS Stored aggregates use defensive copies
+PASS Concurrent increments remain serializable
+PASS Atomic file store survives close and reopen
+PASS Workspace file lock rejects a second instance
+PASS Corrupt workspace fails closed without overwriting
+PASS Unknown schema version is not silently migrated
+PASS Successful job persists result and hides input
+PASS Idempotency returns original job and rejects changed payload
+PASS Queued cancellation never executes handler
+PASS Running cancellation is cooperative
+PASS Unhandled job failure stores safe error instead of private text
+PASS Restart marks interrupted jobs failed instead of replaying
+PASS Queue capacity is bounded to 64 pending jobs
+PASS Unknown job kinds cannot be scheduled
+PASS Router binds path and percent-decoded query separately
+PASS Router rejects unmatched routes
+PASS Gateway rejects unexpected Host and unauthenticated state access
+PASS Health is public, responses carry CSP and request ID
+PASS Authenticated gateway never exposes workspace secret
+PASS Gateway blocks cross-origin writes before routing
+PASS Gateway enforces JSON writes and body bounds
+PASS Model provider without a configured model fails explicitly
+PASS Ollama adapter sends nonstreaming request and parses token counts
+PASS Ollama embedding adapter validates shape and finite values
+PASS Ollama provider HTTP failure does not silently fall back
+PASS CSV protects spreadsheet formula prefixes
+PASS Provider response reader enforces byte budget
+PASS Provider response reader times out stalled reads
+PASS XML escaping covers graph export special characters
+PASS Chunk boundaries reproduce exact source substrings
+PASS Chunk overlap is bounded and progresses monotonically
+PASS Chunking rejects excessive overlap
+PASS Hash vectors are deterministic and unit-normalized
+PASS Zero vector cosine is zero rather than NaN
+PASS Mixed vector dimensions are rejected
+PASS BM25 ranks the matching document before unrelated text
+PASS Hash provider explicitly identifies its non-semantic vector space
+PASS Explicit relationship extraction retains source evidence
+PASS Relationship type tokens are not extracted as entity names
+PASS Weak co-occurrence is distinguished from typed relationships
+PASS Collection validates aliases and provider choice
+PASS Indexing commits all sample documents and chunk counts
+PASS Knowledge graph has source-bearing typed edges
+PASS Hybrid query returns ranked sources with explanations
+PASS Unrelated question abstains instead of hallucinating
+PASS Exact-content reingest deduplicates documents
+PASS Reindex increments version only after completion
+PASS Query feedback rejects stale revisions
+PASS Benchmark computes 3-method relevance ablation
+PASS GraphML and Cypher exports preserve relationship semantics
+PASS Query source offsets point into the stored source text
+PASS Deleting indexed document removes its live graph provenance
+PASS Top-K and traversal depth are bounded
+RESULT: 65 passed; 0 failed
+TAP version 13
+# Subtest: escapes user controlled HTML and quotes
+ok 1 - escapes user controlled HTML and quotes
+  ---
+  duration_ms: 0.830315
+  type: 'test'
+  ...
+# Subtest: handles null text without leaking undefined
+ok 2 - handles null text without leaking undefined
+  ---
+  duration_ms: 0.940035
+  type: 'test'
+  ...
+# Subtest: clamps chart inputs
+ok 3 - clamps chart inputs
+  ---
+  duration_ms: 0.132945
+  type: 'test'
+  ...
+# Subtest: formats finite percentages
+ok 4 - formats finite percentages
+  ---
+  duration_ms: 0.112985
+  type: 'test'
+  ...
+# Subtest: sorting does not mutate original data
+ok 5 - sorting does not mutate original data
+  ---
+  duration_ms: 0.141657
+  type: 'test'
+  ...
+# Subtest: deduplicates by stable identifiers
+ok 6 - deduplicates by stable identifiers
+  ---
+  duration_ms: 0.111584
+  type: 'test'
+  ...
+# Subtest: recognizes all terminal states
+ok 7 - recognizes all terminal states
+  ---
+  duration_ms: 0.2462
+  type: 'test'
+  ...
+# Subtest: invalid dates render a placeholder
+ok 8 - invalid dates render a placeholder
+  ---
+  duration_ms: 0.147946
+  type: 'test'
+  ...
+# Subtest: layout keeps every identity and finite bounded positions
+ok 9 - layout keeps every identity and finite bounded positions
+  ---
+  duration_ms: 12.623069
+  type: 'test'
+  ...
+# Subtest: layout is deterministic and does not mutate graph input
+ok 10 - layout is deterministic and does not mutate graph input
+  ---
+  duration_ms: 1.257089
+  type: 'test'
+  ...
+# Subtest: empty graph and disconnected graph are supported
+ok 11 - empty graph and disconnected graph are supported
+  ---
+  duration_ms: 0.432983
+  type: 'test'
+  ...
+# Subtest: neighbors traverse either edge direction without including self
+ok 12 - neighbors traverse either edge direction without including self
+  ---
+  duration_ms: 0.147215
+  type: 'test'
+  ...
+# Subtest: weak co-occurrence is hidden unless explicitly enabled
+ok 13 - weak co-occurrence is hidden unless explicitly enabled
+  ---
+  duration_ms: 0.275964
+  type: 'test'
+  ...
+# Subtest: edges with missing endpoint do not destabilize layout
+ok 14 - edges with missing endpoint do not destabilize layout
+  ---
+  duration_ms: 0.444531
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 69.706769

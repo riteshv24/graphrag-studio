@@ -1,0 +1,6 @@
+{
+  "question": "Who owns Identity Service and which services depend on it?",
+  "mode": "hybrid",
+  "topK": 5,
+  "hops": 2
+}
